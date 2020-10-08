@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="shengmu">
+        <item>b</item>
+        <item>p</item>
+        <item>m</item>
+        <item>f</item>
+        <item>d</item>
+        <item>t</item>
+        <item>n</item>
+        <item>l</item>
+        <item>g</item>
+        <item>k</item>
+        <item>h</item>
+        <item>j</item>
+        <item>q</item>
+        <item>x</item>
+        <item>zh</item>
+        <item>ch</item>
+        <item>sh</item>
+        <item>r</item>
+        <item>z</item>
+        <item>c</item>
+        <item>s</item>
+        <item>y</item>
+        <item>w</item>
+    </array>
+
+    <array name="yunmu">
+        <item>a</item>
+        <item>o</item>
+        <item>e</item>
+        <item>i</item>
+        <item>u</item>
+        <item>ü</item>
+        <item>ai</item>
+        <item>ei</item>
+        <item>ui</item>
+        <item>ao</item>
+        <item>ou</item>
+        <item>iu</item>
+        <item>ie</item>
+        <item>üe</item>
+        <item>er</item>
+        <item>an</item>
+        <item>en</item>
+        <item>in</item>
+        <item>un</item>
+        <item>ün</item>
+        <item>ang</item>
+        <item>eng</item>
+        <item>ing</item>
+        <item>ong</item>
+    </array>
+
+    <array name="zhengti">
+        <item>zhi</item>
+        <item>chi</item>
+        <item>shi</item>
+        <item>ri</item>
+        <item>zi</item>
+        <item>ci</item>
+        <item>si</item>
+        <item>yi</item>
+        <item>wu</item>
+        <item>yu</item>
+        <item>ye</item>
+        <item>yue</item>
+        <item>yuan</item>
+        <item>yin</item>
+        <item>yun</item>
+        <item>ying</item>
+    </array>
+</resources>

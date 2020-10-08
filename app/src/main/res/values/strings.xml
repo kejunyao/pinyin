@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">汉语拼音</string>
+    <dimen name="item_margin">16dp</dimen>
+    <dimen name="pinyin_text_size">40dp</dimen>
+</resources>
