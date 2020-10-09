@@ -9,6 +9,9 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private PinyinPlayer mPinyinPlayer;
+    private LinearLayoutManager mLinearLayoutManager;
+    private LetterAdapter mLetterAdapter;
+    private int mPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,35 +20,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mRecyclerView = findViewById(R.id.pinyin_recycler);
 
-        final LinearLayoutManager manager = new LinearLayoutManager(
+        mLinearLayoutManager = new LinearLayoutManager(
                 this,
                 RecyclerView.VERTICAL,
                 false
         );
-        mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        final LetterAdapter adapter = new LetterAdapter();
-        adapter.setData(PinyinFactory.buildData(this));
-        mRecyclerView.setAdapter(adapter);
+        mLetterAdapter = new LetterAdapter();
+        mLetterAdapter.setData(PinyinFactory.buildData(this));
+        mRecyclerView.setAdapter(mLetterAdapter);
 
-        adapter.setOnItemClickListener(new OnItemClickListener<Letter>() {
+        mLetterAdapter.setOnItemClickListener(new OnItemClickListener<Letter>() {
             @Override
             public void onItemClick(Letter data) {
-                adapter.refreshSelected(data);
+                mLetterAdapter.refreshSelected(data);
                 mPinyinPlayer.play(data);
+                location(data);
             }
         });
-        mPinyinPlayer.setSource(adapter.getLetters());
+        mPinyinPlayer.setSource(mLetterAdapter.getLetters());
         mPinyinPlayer.setOnPlayCompleteListener(new PinyinPlayer.OnPlayCompleteListener() {
+
             @Override
             public void onPlayComplete(final Letter letter) {
-                adapter.refreshSelected(letter);
-                int position = letter.position;
-                // TODO 定位需要优化
-                mRecyclerView.smoothScrollToPosition(position - 1);
+                mLetterAdapter.refreshSelected(letter);
+                location(letter);
             }
         });
-        PlayModeView playModeView = findViewById(R.id.play_mode_group);
+        final PlayModeView playModeView = findViewById(R.id.play_mode_group);
         playModeView.setOnModeCheckedListener(new PlayModeView.OnModeCheckedListener() {
             @Override
             public void onModeChecked(PinyinPlayer.PlayMode mode) {
@@ -53,6 +56,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mPinyinPlayer.setOnPlayModeChangedListener(new PinyinPlayer.OnPlayModeChangedListener() {
+            @Override
+            public void onPlayModeChanged(PinyinPlayer.PlayMode mode) {
+                playModeView.setPlayMode(mode);
+            }
+        });
+    }
+
+    private void location(Letter letter) {
+        if (mPosition == letter.position) {
+            return;
+        }
+        mPosition = letter.position;
+        int pos = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
+        int distance = PinyinFactory.getDistance(mLetterAdapter, pos, mPosition);
+        mRecyclerView.scrollBy(0, distance);
     }
 
 

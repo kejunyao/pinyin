@@ -35,18 +35,15 @@ class LetterHolder extends BaseRecyclerHolder<AdapterData> {
         mTextView2 = findViewById(R.id.num2);
         mTextView3 = findViewById(R.id.num3);
 
-        int margin = itemView.getResources().getDimensionPixelSize(R.dimen.item_margin);
+        UIUtils.setMarginTop(itemView, Utils.PINYIN_CIRCLE_MARGIN);
+        UIUtils.setMarginLeft(mTextView1, Utils.PINYIN_CIRCLE_MARGIN);
+        UIUtils.setMarginRight(mTextView1, Utils.PINYIN_CIRCLE_MARGIN);
+        UIUtils.setMarginRight(mTextView2, Utils.PINYIN_CIRCLE_MARGIN);
+        UIUtils.setMarginRight(mTextView3, Utils.PINYIN_CIRCLE_MARGIN);
 
-        int width = (itemView.getResources().getDisplayMetrics().widthPixels - 4 * margin) / 3;
-        UIUtils.setMarginTop(itemView, margin);
-        UIUtils.setMarginLeft(mTextView1, margin);
-        UIUtils.setMarginRight(mTextView1, margin);
-        UIUtils.setMarginRight(mTextView2, margin);
-        UIUtils.setMarginRight(mTextView3, margin);
-
-        UIUtils.setViewSize(mTextView1, width, width);
-        UIUtils.setViewSize(mTextView2, width, width);
-        UIUtils.setViewSize(mTextView3, width, width);
+        UIUtils.setViewSize(mTextView1, Utils.PINYIN_CIRCLE_SIZE, Utils.PINYIN_CIRCLE_SIZE);
+        UIUtils.setViewSize(mTextView2, Utils.PINYIN_CIRCLE_SIZE, Utils.PINYIN_CIRCLE_SIZE);
+        UIUtils.setViewSize(mTextView3, Utils.PINYIN_CIRCLE_SIZE, Utils.PINYIN_CIRCLE_SIZE);
 
         mTextView1.setOnClickListener(new View.OnClickListener() {
             @Override

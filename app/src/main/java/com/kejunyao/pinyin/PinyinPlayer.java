@@ -27,6 +27,10 @@ public final class PinyinPlayer {
         void onPlayComplete(Letter letter);
     }
 
+    public interface OnPlayModeChangedListener {
+        void onPlayModeChanged(PlayMode mode);
+    }
+
     public enum PlayMode {
         MANUAL_PLAYBACK, // 手动播放
         SIGNAL_REPEAT, // 单字母复读
@@ -124,6 +128,11 @@ public final class PinyinPlayer {
         mOnPlayCompleteListener = listener;
     }
 
+    private OnPlayModeChangedListener mOnPlayModeChangedListener;
+    public void setOnPlayModeChangedListener(OnPlayModeChangedListener listener) {
+        mOnPlayModeChangedListener = listener;
+    }
+
     public void setSource(List<Letter> letters) {
         mLetters.clear();
         if (!Utility.isNullOrEmpty(letters)) {
@@ -159,6 +168,7 @@ public final class PinyinPlayer {
 
     public void stop() {
         if (mStreamId >= 0) {
+            clearAllMessage();
             mSoundPool.stop(mStreamId);
         }
     }
@@ -169,6 +179,7 @@ public final class PinyinPlayer {
             return;
         }
         mCurrentPlayLetter = letter;
+        checkPlayModeChange();
         if (mSoundId > 0) {
             mSoundPool.stop(mStreamId);
             mSoundPool.unload(mSoundId);
@@ -178,6 +189,28 @@ public final class PinyinPlayer {
             mOnPlayCompleteListener.onPlayComplete(mCurrentPlayLetter);
         }
         mSoundId = loadSound(letter);
+    }
+
+    private void checkPlayModeChange() {
+        if (mPlayMode == PlayMode.ALL_SHENGMU_REPEAT && !isShengmu(mCurrentPlayLetter)) {
+            clearAllMessage();
+            mPlayMode = PlayMode.MANUAL_PLAYBACK;
+            if (mOnPlayModeChangedListener != null) {
+                mOnPlayModeChangedListener.onPlayModeChanged(mPlayMode);
+            }
+        } else if (mPlayMode == PlayMode.ALL_YUNMU_REPEAT && !isYunmu(mCurrentPlayLetter)) {
+            clearAllMessage();
+            mPlayMode = PlayMode.MANUAL_PLAYBACK;
+            if (mOnPlayModeChangedListener != null) {
+                mOnPlayModeChangedListener.onPlayModeChanged(mPlayMode);
+            }
+        } else if (mPlayMode == PlayMode.ALL_ZHENGTI_REPEAT && !isZhengti(mCurrentPlayLetter)) {
+            clearAllMessage();
+            mPlayMode = PlayMode.MANUAL_PLAYBACK;
+            if (mOnPlayModeChangedListener != null) {
+                mOnPlayModeChangedListener.onPlayModeChanged(mPlayMode);
+            }
+        }
     }
 
     private void autoPlay() {
@@ -284,5 +317,35 @@ public final class PinyinPlayer {
                 }
             }
         }
+    }
+
+    private boolean isShengmu(Letter l) {
+        return isCategory(l, B, W);
+    }
+
+    private boolean isYunmu(Letter l) {
+        return isCategory(l, A, ONG);
+    }
+
+    private boolean isZhengti(Letter l) {
+        return isCategory(l, ZHI, YING);
+    }
+
+    private boolean isCategory(Letter l, String start, String end) {
+        boolean is = false;
+        for (Letter letter : mLetters) {
+            if (letter.text.equals(start)) {
+                is = true;
+            }
+            if (is) {
+                if (l.text.equals(letter.text)) {
+                    return true;
+                }
+            }
+            if (letter.text.equals(end)) {
+                return false;
+            }
+        }
+        return false;
     }
 }

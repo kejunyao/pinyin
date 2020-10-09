@@ -128,6 +128,36 @@ public class PlayModeView extends BaseLinearLayout {
         });
     }
 
+    public void setPlayMode(PinyinPlayer.PlayMode mode) {
+        if (mode == null) {
+            return;
+        }
+        switch (mode) {
+            case ALL_SEQUENCE_REPEAT:
+                changeCheckStatus(mAllSequenceRepeatView);
+                break;
+            case ALL_SEQUENCE:
+                changeCheckStatus(mAllSequenceView);
+                break;
+            case ALL_YUNMU_REPEAT:
+                changeCheckStatus(mAllYunmuRepeatView);
+                break;
+            case ALL_SHENGMU_REPEAT:
+                changeCheckStatus(mAllShengmuRepeatView);
+                break;
+            case ALL_ZHENGTI_REPEAT:
+                changeCheckStatus(mAllZhengtiRepeatView);
+                break;
+            case SIGNAL_REPEAT:
+                changeCheckStatus(mSignalRepeatView);
+                break;
+            default:
+            case MANUAL_PLAYBACK:
+                changeCheckStatus(mManualPlaybackView);
+                break;
+        }
+    }
+
     private void changeCheckStatus(View view) {
         for (RadioButton button : mButtons) {
             button.setChecked(button.getId() == view.getId());

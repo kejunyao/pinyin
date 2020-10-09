@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">汉语拼音</string>
-    <dimen name="item_margin">16dp</dimen>
-    <dimen name="pinyin_text_size">40dp</dimen>
+    <string name="shengmu_title">声母（23个）</string>
+    <string name="yunmu_title">韵母（24个）</string>
+    <string name="zhengti_title">整体认读音节（16个）</string>
 </resources>

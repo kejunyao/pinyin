@@ -1,9 +1,7 @@
 package com.kejunyao.pinyin;
 
 import android.content.Context;
-
 import com.kejunyao.arch.recycler.AdapterData;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,20 +20,19 @@ final class PinyinFactory {
 
     static List<AdapterData> buildData(Context context) {
         List<AdapterData> result = new ArrayList<>();
-        AdapterData data = new AdapterData(LetterAdapter.TYPE_TITLE, "声母（23个）");
+        AdapterData data = new AdapterData(LetterAdapter.TYPE_TITLE, Utils.getString(R.string.shengmu_title));
         result.add(data);
         result.addAll(groupData(context, R.array.shengmu, LetterType.SHENG_MU));
-        data = new AdapterData(LetterAdapter.TYPE_TITLE, "韵母（24个）");
+        data = new AdapterData(LetterAdapter.TYPE_TITLE, Utils.getString(R.string.yunmu_title));
         result.add(data);
         result.addAll(groupData(context, R.array.yunmu, LetterType.YUN_MU));
-        data = new AdapterData(LetterAdapter.TYPE_TITLE, "整体认读音节（16个）");
+        data = new AdapterData(LetterAdapter.TYPE_TITLE, Utils.getString(R.string.zhengti_title));
         result.add(data);
         result.addAll(groupData(context, R.array.zhengti, LetterType.ZHENG_TI));
 
         int index = 0;
-        for (int i = 0, size = result.size(); i < size; i++) {
+        for (AdapterData ad : result) {
             index ++;
-            AdapterData ad = result.get(i);
             if (ad.type == LetterAdapter.TYPE_LETTER) {
                 List<Letter> letters = (List<Letter>) ad.data;
                 for (Letter letter : letters) {
@@ -67,5 +64,39 @@ final class PinyinFactory {
             }
         }
         return result;
+    }
+
+
+    static int getDistance(LetterAdapter adapter, int firstIndex, int secondIndex) {
+        int first = 0;
+        int second = 0;
+        if (firstIndex < secondIndex) { // 向下滑动
+            first = firstIndex;
+            second = secondIndex;
+        } else if (firstIndex > secondIndex) {
+            first = secondIndex;
+            second = firstIndex;
+        } else {
+            return -Utils.PINYIN_TITLE_HOLDER_HEIGHT;
+        }
+        int distance = 0;
+        for (int i = first; i < second; i++) {
+            AdapterData ad = adapter.getItem(i);
+            if (ad.type == LetterAdapter.TYPE_TITLE) {
+                distance += Utils.PINYIN_TITLE_HOLDER_HEIGHT;
+            } else if (ad.type == LetterAdapter.TYPE_LETTER) {
+                if (firstIndex < secondIndex) {
+                    if (i < second - 1) {
+                        distance += Utils.PINYIN_CIRCLE_MARGIN + Utils.PINYIN_CIRCLE_SIZE;
+                    }
+                } else {
+                    distance += Utils.PINYIN_CIRCLE_MARGIN + Utils.PINYIN_CIRCLE_SIZE;
+                    if (i == second - 1) {
+                        distance += Utils.PINYIN_CIRCLE_SIZE;
+                    }
+                }
+            }
+        }
+        return firstIndex < secondIndex ? distance : -distance;
     }
 }
