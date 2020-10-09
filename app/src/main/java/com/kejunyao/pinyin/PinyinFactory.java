@@ -67,7 +67,7 @@ final class PinyinFactory {
     }
 
 
-    static int getDistance(LetterAdapter adapter, int firstIndex, int secondIndex) {
+    static int getDistance(LetterAdapter adapter, int firstIndex, int secondIndex, boolean isDown) {
         int first = 0;
         int second = 0;
         if (firstIndex < secondIndex) { // 向下滑动
@@ -77,15 +77,19 @@ final class PinyinFactory {
             first = secondIndex;
             second = firstIndex;
         } else {
-            return -Utils.PINYIN_TITLE_HOLDER_HEIGHT;
+            return isDown ? 0 : -Utils.PINYIN_TITLE_HOLDER_HEIGHT;
         }
         int distance = 0;
         for (int i = first; i < second; i++) {
             AdapterData ad = adapter.getItem(i);
             if (ad.type == LetterAdapter.TYPE_TITLE) {
                 distance += Utils.PINYIN_TITLE_HOLDER_HEIGHT;
+                if (isDown) {
+                } else {
+                    distance += Utils.PINYIN_CIRCLE_SIZE;
+                }
             } else if (ad.type == LetterAdapter.TYPE_LETTER) {
-                if (firstIndex < secondIndex) {
+                if (isDown) {
                     if (i < second - 1) {
                         distance += Utils.PINYIN_CIRCLE_MARGIN + Utils.PINYIN_CIRCLE_SIZE;
                     }

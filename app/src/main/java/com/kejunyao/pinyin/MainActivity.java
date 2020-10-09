@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         mLetterAdapter.setOnItemClickListener(new OnItemClickListener<Letter>() {
             @Override
             public void onItemClick(Letter data) {
-                mLetterAdapter.refreshSelected(data);
                 mPinyinPlayer.play(data);
+                mLetterAdapter.refreshSelected(data);
                 location(data);
             }
         });
@@ -68,10 +68,15 @@ public class MainActivity extends AppCompatActivity {
         if (mPosition == letter.position) {
             return;
         }
-        mPosition = letter.position;
         int pos = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
-        int distance = PinyinFactory.getDistance(mLetterAdapter, pos, mPosition);
+        int distance = PinyinFactory.getDistance(
+                mLetterAdapter,
+                pos,
+                letter.position,
+                letter.position > mPosition
+        );
         mRecyclerView.scrollBy(0, distance);
+        mPosition = letter.position;
     }
 
 
