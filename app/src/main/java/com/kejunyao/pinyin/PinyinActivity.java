@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class PinyinActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private PinyinPlayer mPinyinPlayer;
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPinyinPlayer = new PinyinPlayer(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pinyin);
         mRecyclerView = findViewById(R.id.pinyin_recycler);
 
         mLinearLayoutManager = new LinearLayoutManager(

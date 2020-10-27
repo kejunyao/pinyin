@@ -4,4 +4,7 @@
     <dimen name="pinyin_text_size">40dp</dimen>
     <dimen name="pinyin_title_hold_height">60dp</dimen>
     <dimen name="pinyin_letter_stroke_width">3dp</dimen>
+
+    <dimen name="action_item_text_size">16dp</dimen>
+    <dimen name="action_item_height">48dp</dimen>
 </resources>
