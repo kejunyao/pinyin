@@ -1,0 +1,410 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": [
+    {
+      "id": 1,
+      "title":  "入学教育",
+      "duration": 1120,
+      "urls": ["hhttp://58.215.114.19/om.tc.qq.com/AVlLvKDoW4Xl6IuLCmiHkVoczS45x_SkypITLCWfHNjU/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/v0512ks1qhu.m701.mp4?vkey=F1D24EC6D9525CC49CB0474A7450649F5BDC5D76084ABD0307B1B1AD3304A455FA79C7BEA8546C42A24E67ED52F9889B05D842FF2ACA1D75EF9BF15FE531C36C36B4FA08D55106A2B359884F00550E7C345824667C42EC3DF91854057E0B883A5A22D4D5C65CE1D0E2E6BEDFB8F5894F"]
+    },
+    {
+      "id": 2,
+      "title":  "天地人",
+      "duration": 1347,
+      "urls": [
+        "http://123.184.21.26/om.tc.qq.com/ACj5lPYyi9RrjGr98epYl9_ad01ZSPCpZRTsG5xPflM4/uwMROfz2r57AoaQXGdGnC2deB3dYv4oNCBdVbCXSmvjDwMX6/svp_50001/szg_24633828_50001_45c70510b9bf4098b011fc6c89941316.f622.mp4?vkey=B6423832B3D1ECDC237D0481F3C8FA147AD7B92CEA5C273CDF20B69A716DA8CABFD1166B5D5DA8B68AC2416545AFC4CED42C373F85648CD5DA894D02F6152C14612497B02E05D3BDE5C4AE6FF6F18D0A694B7EC2BF0F6715E97A095251B60C182D9B06EF5B2C326FCA0A848C1A1969FD"
+      ]
+    },
+    {
+      "id": 3,
+      "title":  "金木水火土",
+      "duration": 1901,
+      "urls": [
+        "http://58.215.114.26/om.tc.qq.com/AqF6a8T73fmkmJn8pDqTSisQdIZ--cf8PnpGODmWFOxs/uwMROfz2r57AoaQXGdGnC2deB3dYv4oNCBdVbCXSmvjDwMX6/svp_50001/szg_27466129_50001_5fac6b0360bd44bbbf2855787546e107.f622.mp4?vkey=77425088A21EB36AF9B55EB27B95FC53123002C76970443C02D61639508990538E2716E71F41BF17C2ECF71A03BDF49EABBB0266603D6ED60597199A9830BE154A310145E21CE0D5C9C2DF956E4D873BCFC26DA848FFD9D9E37DC54E827D26C9BF30BB37847C7D8242C12D0097AFA9DB"
+      ]
+    },
+    {
+      "id": 4,
+      "title":  "口耳目",
+      "duration": 1520,
+      "urls": [
+        "http://58.216.6.30/om.tc.qq.com/AAX3FBsKF5ZtH-VfvViaPI6fAIjj2FWOe2qQ4AYHyDd4/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/k0768hpml9r.m701.mp4?vkey=DF2FCEDB1C37D007C52314AC426E65A701C3C646D1D4D671AB910B6E733F165FDBE0AC131F447C6B9CA2B69DBAF194975CE0D8AB2A5AF3967A65F2EE8DFA4E7546144A50638F9DE1AE26E9A56518F2B9DB678F33D5BCFA5BF1A9EE3F23FCA3EE30F4C59075FB8F6653F492FB62021B14",
+        "http://110.185.116.145/om.tc.qq.com/AsYuxQaUO23SwePUstfqIxDRlFQnyjQvLX-NdVLFim5Y/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/e0768jmyjzx.m701.mp4?vkey=47B7F694D90257862CF7C1A92FF621C5F42A1F4BF9D4995E875AD894E8E71630B6F7261793B73B51D1C79EF3DC1CBDF31647ABC5870A4EF426878EEA97871807672A71660E1B539498D95496A6BF03F80364C5CDF5E504594C7FF30BB91C2F18E78E0CA2CB0950971D82FAD1BF15B7A6"
+      ]
+    },
+    {
+      "id": 5,
+      "title":  "日月水火",
+      "duration": 1653,
+      "urls": [
+        "http://223.221.162.26/om.tc.qq.com/AfIDCwqGzcpfvjFLwmTXD8E393T3zufKrJebtqnMbCfo/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/i0768kezcq5.m701.mp4?vkey=759C90CBBA8F4C0FA57CB72D788D78062DFDDD32B13C726A0BB762B9A2F9E4034E25DFF431956B4FE48FB8CFE490F34C5FA5E7E7194CB2A85F622678D9A57FF96002E6B009A8AE123AAA883BEDEBD1C6A72DBDB1F718285FEEC34F5ECE279D6135723E6715AA4F332C73DA38762947B6",
+        "http://222.186.181.30/om.tc.qq.com/AjXT3kDc4KEmsZhj2jIWvu9TeArzO8SqlqMjiHMXR9FM/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/y0768j17nqc.m701.mp4?vkey=4C786E4833D80181B60D5718C15D89F694E0BB01875420E3C2C39A653FE89E875C11A82CB798145CBF85012F97D9D53BB492B5B094F32ABA7AF70DB80BADE7093EB852D714ECECDDF1A13BB89D1CE9C8125A8CD5A6C8F1892A3B81CEEF97F542854A691CE3C119870C6CB5D7B635AE88"
+      ]
+    },
+    {
+      "id": 6,
+      "title":  "对韵歌",
+      "duration": 1534,
+      "urls": [
+        "http://58.222.27.50/om.tc.qq.com/A4_EENzfg_uwZiI1r8Ly6Bq7Gu-beyJAX7Lw51JFdQ7c/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/v0768yv8jm6.m701.mp4?vkey=C953D01A5007CDF9DE86A8E8B1C27BE68A87B24B7E898DD2B9A653120C87CDEAADDE286DA1FE54A9F7D6C4864A120C88DA855B4FC30B5B6ED93332E9179A0DF5ABB8322CEED6137C708202BD07B470E08A4B7A44EBE6B526CC6C71D275C5716F3D940BC39B0F13E0E934BD6253E74D4E",
+        "http://110.185.116.143/om.tc.qq.com/AWTb4p87Zk0h8SGszlhdMpQ3GqK2la-YQ8wPCHAMJFO8/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/k0768f1p05k.m701.mp4?vkey=854DE84543358A685C187D12CA52E419C4145BB22A3AD1B418F671F75DF15E0FDC8300F7D138D923DEF65DFDF43A7A69FCDFBD34456DB43E1FC62708147B4263510951A12F70E63CDF292C352C333BBBC3D33C95A5058BF6C86CD617B119127F9B3FFD6946CFB93ECA3534BC7B75F354"
+      ]
+    },
+    {
+      "id": 7,
+      "title":  "语文园地",
+      "duration": 1540,
+      "urls": [
+        "http://219.151.30.25/om.tc.qq.com/An6tLxPsMSTLCM3NjvHH1hfZcCAshehLLWOJDuTzl2NA/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/e0768ye1945.m701.mp4?vkey=59988E4DD16B27F8006AFB245BBF87B87D5EE96167FE699CC2BE06D65A8C94CEE0AF75906898F3EF4D4E0F9FE6BC37E0D805A64D5B9CEF9D1F8C61CECEFB600A87A31E0FEFE138D469D045F53BA6E573B7284598FC3222EC066D3BA4D4BC0C37DB5D443D0D01E3CB06DE0D3EE24D9B4F"
+      ]
+    },
+    {
+      "id": 8,
+      "title":  "aoe",
+      "duration": 1598,
+      "urls": [
+        "http://42.81.115.53/om.tc.qq.com/AJNAn5bw6AU9RoBG50xONCa9OTmkQFd4ifVegQQghjOM/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/n3023alc3dj.m701.mp4?vkey=D554B4B2E0209DE083FC9A6542D13CD37C392C877E8CC9A0C66EA72AB40A6D571A6BA17A22DD4A432DF8642B659891BF99CD793569C77E38D9427F163B4287AD3661C964464F20E4242467822588C7A2909848B51EC68DF7330B3A6A721FB0148CED7BF212ED491DE5131352FC0A8C0A",
+        "http://58.216.6.26/om.tc.qq.com/AguIBwRhXY9PzdXyeckvYCPn4pBBjlg2l8OovgYS05sM/uwMROfz2r5zAoaQXGdGnC2dfhzkrvqBxjTHFA2hC4m2Yr1g7/k3023wawdvz.m701.mp4?vkey=0859F6E2E2BFF699863A14ABA01C3324C6B73129196F7A2A1CF15062A3276A3F33508A163077FD7C8FE120D576AB90A99EE0BE65B9C6D76227D1F7BDF8DCDD547669EF4A13CD8897434E03C0733143007B5C97C78297B7A3EFA33D848449712845A34C43E7B030F7FE0E8B53C79A568F"
+      ]
+    },
+    {
+      "id": 9,
+      "title":  "iuǖyw",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/013.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/014_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/014_2.mp4"
+      ]
+    },
+    {
+      "id": 10,
+      "title":  "bpmf",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/015.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/016_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/016_2.mp4"
+      ]
+    },
+    {
+      "id": 11,
+      "title":  "dtnl",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/017.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/018.mp4"
+      ]
+    },
+    {
+      "id": 12,
+      "title":  "gkh",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/019.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/020_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/020_2.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/020_3.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/020_4.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/020_5.mp4"
+      ]
+    },
+    {
+      "id": 13,
+      "title":  "jqx",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/021.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/022.mp4"
+      ]
+    },
+    {
+      "id": 14,
+      "title":  "zcs",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/023.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/024.mp4"
+      ]
+    },
+    {
+      "id": 15,
+      "title":  "zh ch sh r",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/025.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/026.mp4"
+      ]
+    },
+    {
+      "id": 16,
+      "title":  "语文园地二",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/027_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/027_2.mp4"
+      ]
+    },
+    {
+      "id": 17,
+      "title":  "ai ei ui",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/028.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/029.mp4"
+      ]
+    },
+    {
+      "id": 18,
+      "title":  "ao ou iu",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/030.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/031_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/031_2.mp4"
+      ]
+    },
+    {
+      "id": 19,
+      "title":  "ie üe er",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/032.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/033.mp4"
+      ]
+    },
+    {
+      "id": 20,
+      "title":  "an en in un ün",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/034.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/035_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/035_2.mp4"
+      ]
+    },
+    {
+      "id": 21,
+      "title":  "ang eng ing ong",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/036.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/037.mp4"
+      ]
+    },
+    {
+      "id": 22,
+      "title":  "语文园地三",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/038_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/038_2.mp4"
+      ]
+    },
+    {
+      "id": 23,
+      "title":  "秋天",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/039.mp4"
+      ]
+    },
+    {
+      "id": 24,
+      "title":  "小小的船",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/040.mp4"
+      ]
+    },
+    {
+      "id": 25,
+      "title":  "江南",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/041.mp4"
+      ]
+    },
+    {
+      "id": 26,
+      "title":  "四季",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/042.mp4"
+      ]
+    },
+    {
+      "id": 27,
+      "title":  "语文园地四",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/043.mp4"
+      ]
+    },
+    {
+      "id": 28,
+      "title":  "画",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/044.mp4"
+      ]
+    },
+    {
+      "id": 29,
+      "title":  "大小多少",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/045.mp4"
+      ]
+    },
+    {
+      "id": 30,
+      "title":  "小书包",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/046.mp4"
+      ]
+    },
+    {
+      "id": 31,
+      "title":  "日月明",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/047_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/047_2.mp4"
+      ]
+    },
+    {
+      "id": 32,
+      "title":  "升国旗",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/048.mp4"
+      ]
+    },
+    {
+      "id": 33,
+      "title":  "语文园地五",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/049_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/049_2.mp4"
+      ]
+    },
+    {
+      "id": 34,
+      "title":  "影子",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/050_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/050_2.mp4"
+      ]
+    },
+    {
+      "id": 35,
+      "title":  "比尾巴",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/051_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/051_2.mp4"
+      ]
+    },
+    {
+      "id": 36,
+      "title":  "青蛙写诗",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/052_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/052_2.mp4"
+      ]
+    },
+    {
+      "id": 37,
+      "title":  "雨点儿",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/053_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/053_2.mp4"
+      ]
+    },
+    {
+      "id": 38,
+      "title":  "语文园地六",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/054_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/054_2.mp4"
+      ]
+    },
+    {
+      "id": 39,
+      "title":  "明天要远足",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/055.mp4"
+      ]
+    },
+    {
+      "id": 40,
+      "title":  "大还是小",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/056.mp4"
+      ]
+    },
+    {
+      "id": 41,
+      "title":  "项链",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/057_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/057_2.mp4"
+      ]
+    },
+    {
+      "id": 42,
+      "title":  "语文园地七",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/058_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/058_2.mp4"
+      ]
+    },
+    {
+      "id": 43,
+      "title":  "雪地里的小画家",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/059_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/059_2.mp4"
+      ]
+    },
+    {
+      "id": 44,
+      "title":  "乌鸦喝水",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/060.mp4"
+      ]
+    },
+    {
+      "id": 45,
+      "title":  "小蜗牛",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/061_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/061_2.mp4"
+      ]
+    },
+    {
+      "id": 46,
+      "title":  "语文园地八",
+      "duration": 0,
+      "urls": [
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/062_1.mp4",
+        "https://github.com/kejunyao/res/blob/master/first_grade_chinese_volume_1/062_2.mp4"
+      ]
+    }
+  ]
+}

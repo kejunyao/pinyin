@@ -6,8 +6,8 @@ import android.widget.TextView;
 
 import com.kejunyao.arch.recycler.BaseRecyclerHolder;
 import com.kejunyao.arch.recycler.ViewHolderUtils;
-import com.kejunyao.lesson.Video;
-import com.kejunyao.pinyin.R;
+import com.kejunyao.lecture.lesson.Video;
+import com.kejunyao.lecture.pinyin.R;
 
 /**
  * $类描述$

@@ -7,9 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kejunyao.arch.recycler.BaseRecyclerAdapter;
-import com.kejunyao.lesson.Lesson;
-import com.kejunyao.lesson.Video;
-import com.kejunyao.pinyin.OnItemClickListener;
+import com.kejunyao.lecture.lesson.Video;
+import com.kejunyao.lecture.pinyin.OnItemClickListener;
 
 /**
  * $类描述$

@@ -4,19 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.kejunyao.arch.net.Connection;
+import com.kejunyao.AssetsUtils;
 import com.kejunyao.arch.thread.Processor;
 import com.kejunyao.arch.thread.ThreadPoolUtils;
 import com.kejunyao.arch.util.ActivityUtils;
-import com.kejunyao.lesson.Video;
-import com.kejunyao.pinyin.OnItemClickListener;
-import com.kejunyao.pinyin.R;
+import com.kejunyao.lecture.lesson.Video;
+import com.kejunyao.lecture.pinyin.OnItemClickListener;
+import com.kejunyao.lecture.pinyin.R;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.lang.ref.WeakReference;
@@ -34,15 +32,15 @@ public class VideoListActivity extends AppCompatActivity {
     private static final boolean DEBUG = true;
     public static final String TAG = "VideoListActivity";
 
-    private static final String INTENT_KEY_URL = "intent_key_url_dw2123";
+    private static final String INTENT_KEY_URI = "intent_key_uri_dw2123";
 
-    public static void startActivity(Context context, String url) {
+    public static void startActivity(Context context, String uri) {
         Intent intent = new Intent(context, VideoListActivity.class);
         if (context instanceof Activity) {
         } else {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
-        intent.putExtra(INTENT_KEY_URL, url);
+        intent.putExtra(INTENT_KEY_URI, uri);
         context.startActivity(intent);
     }
 
@@ -56,21 +54,17 @@ public class VideoListActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setHasFixedSize(true);
-        loadFromNetwork(getIntent().getStringExtra(INTENT_KEY_URL));
+        loadData(getIntent().getStringExtra(INTENT_KEY_URI));
     }
 
-    private void loadFromNetwork(final String url) {
-        Log.d("sdjiwdwhdwhd", "url: " + url);
+    private void loadData(final String uri) {
         final WeakReference<VideoListActivity> ref = new WeakReference<>(this);
         ThreadPoolUtils.runOnMultiple(new Processor<List<Video>>() {
             @Override
             public List<Video> onProcess() {
                 List<Video> videos = new ArrayList<>();
                 try {
-                    Connection connection = new Connection(url);
-                    connection.setUseGet(true);
-                    Connection.NetworkError error = connection.requestJSON();
-                    JSONObject rjo = connection.getResponse();
+                    JSONObject rjo = AssetsUtils.read(uri);
                     if (rjo != null && rjo.optInt("code") == 200) {
                         JSONArray array = rjo.optJSONArray("data");
                         for (int i = 0, size = array.length(); i < size; i++) {
@@ -104,7 +98,7 @@ public class VideoListActivity extends AppCompatActivity {
             mVideoAdapter.setOnItemClickListener(new OnItemClickListener<Video>() {
                 @Override
                 public void onItemClick(Video data) {
-                    VideoActivity.startActivity(VideoListActivity.this, data.getUrls());
+                    VideoActivity.startActivity(VideoListActivity.this, data);
                 }
             });
             mVideoAdapter.setData(videos);

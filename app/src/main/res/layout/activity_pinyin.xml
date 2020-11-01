@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
-    <com.kejunyao.pinyin.PlayModeView
+    <com.kejunyao.lecture.pinyin.PlayModeView
         android:id="@+id/play_mode_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
