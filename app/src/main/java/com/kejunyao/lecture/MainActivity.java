@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, PinyinActivity.class));
                             break;
                         case LessonFactory.OPTION_ID_LESSON:
-                            Lesson lesson = (Lesson) data.data;
-                            VideoListActivity.startActivity(MainActivity.this, lesson.getUri());
+                            ((Lesson) data.data).startActivity(MainActivity.this);
                             break;
                         case LessonFactory.OPTION_ID_TEST_VIDEO: {
                             ThreadPoolUtils.runOnMultiple(new Processor<String>() {
@@ -102,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                                     video.setUrl(result);
                                     ArrayList<String> urls = new ArrayList<>();
                                     urls.add(result);
-                                    VideoActivity.startActivity(MainActivity.this, video);
+                                    video.startActivity(MainActivity.this);
                                 }
                             });
                             break;

@@ -1,7 +1,6 @@
 package com.kejunyao.lecture.video;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import cn.jzvd.Jzvd;
 
 /**

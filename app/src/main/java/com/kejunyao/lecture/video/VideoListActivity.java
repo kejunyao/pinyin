@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +15,7 @@ import com.kejunyao.arch.thread.Processor;
 import com.kejunyao.arch.thread.ThreadPoolUtils;
 import com.kejunyao.arch.util.ActivityUtils;
 import com.kejunyao.lecture.Utils;
+import com.kejunyao.lecture.lesson.Lesson;
 import com.kejunyao.lecture.pinyin.OnItemClickListener;
 import com.kejunyao.lecture.pinyin.R;
 import org.json.JSONArray;
@@ -29,21 +32,7 @@ import java.util.List;
  */
 public class VideoListActivity extends AppCompatActivity {
 
-    private static final boolean DEBUG = true;
-    public static final String TAG = "VideoListActivity";
-
-    private static final String INTENT_KEY_URI = "intent_key_uri_dw2123";
-
-    public static void startActivity(Context context, String uri) {
-        Intent intent = new Intent(context, VideoListActivity.class);
-        if (context instanceof Activity) {
-        } else {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }
-        intent.putExtra(INTENT_KEY_URI, uri);
-        context.startActivity(intent);
-    }
-
+    private Lesson mLesson;
     private RecyclerView mRecyclerView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +43,13 @@ public class VideoListActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setHasFixedSize(true);
-        loadData(getIntent().getStringExtra(INTENT_KEY_URI));
+        mLesson = Lesson.obtainParam(getIntent());
+        if (mLesson == null || TextUtils.isEmpty(mLesson.getUri())) {
+            finish();
+            return;
+        }
+        setTitle(mLesson.getTitle());
+        loadData(mLesson.getUri());
     }
 
     private void loadData(final String uri) {

@@ -2,18 +2,20 @@ package com.kejunyao.lecture;
 
 import android.app.Activity;
 import android.util.Log;
-
 import com.kejunyao.arch.net.Connection;
+import com.kejunyao.arch.net.agent.HeaderAgent;
+import com.kejunyao.arch.net.header.Header;
+import com.kejunyao.arch.net.header.HeaderImpl;
 import com.kejunyao.arch.thread.Processor;
 import com.kejunyao.arch.thread.ThreadPoolUtils;
 import com.kejunyao.arch.util.ActivityUtils;
 import com.kejunyao.lecture.pinyin.R;
 import com.kejunyao.lecture.video.Video;
-import com.kejunyao.lecture.video.VideoActivity;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * $类描述$
@@ -46,11 +48,26 @@ public final class Utils {
         return App.getContext().getResources().getDimensionPixelSize(resId);
     }
 
+    private static final HeaderAgent HEADER_AGENT = new HeaderAgent() {
+        private List<Header> mHeaders;
+        @Override
+        public List<Header> getHeaders() {
+            if (mHeaders == null) {
+                mHeaders = new ArrayList<>();
+                mHeaders.add(new HeaderImpl("Accept-Language", "en-US,en;q=0.8"));
+                mHeaders.add(new HeaderImpl("User-Agent", "Mozilla"));
+                mHeaders.add(new HeaderImpl("Referer", "google.com"));
+            }
+            return mHeaders;
+        }
+    };
+
     public static String parseTencentVideoUrl(String original) {
         String result = null;
         try {
             Connection conn = new Connection(PARSE_URL_VIDEO);
             conn.setUseGet(true);
+            conn.setHeaderAgent(HEADER_AGENT);
             conn.addParameter("url", original);
             Connection.NetworkError error = conn.requestJSON();
             if (error == Connection.NetworkError.OK) {
@@ -72,7 +89,7 @@ public final class Utils {
 
     public static void playVideo(Activity activity, Video video) {
         if (video.getSource() != Video.SOURCE_TENCENT) {
-            VideoActivity.startActivity(activity, video);
+            video.startActivity(activity);
             return;
         }
         final WeakReference<Activity> ref = new WeakReference<>(activity);
@@ -84,7 +101,7 @@ public final class Utils {
                     return;
                 }
                 video.setUrl(result);
-                VideoActivity.startActivity(activity, video);
+                video.startActivity(activity);
             }
 
             @Override

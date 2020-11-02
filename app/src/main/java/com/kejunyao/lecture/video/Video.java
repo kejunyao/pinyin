@@ -1,7 +1,12 @@
 package com.kejunyao.lecture.video;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.kejunyao.lecture.LaunchParam;
 
 import org.json.JSONObject;
 
@@ -11,7 +16,7 @@ import org.json.JSONObject;
  * @author kejunyao
  * @since 2020年10月27日
  */
-public class Video implements Parcelable {
+public class Video extends LaunchParam implements Parcelable {
 
     public static final int SOURCE_TENCENT = 1;
 
@@ -22,6 +27,17 @@ public class Video implements Parcelable {
     private int source;
 
     public Video() {
+    }
+
+    @Override
+    public void startActivity(Context context) {
+        Intent intent = new Intent(context, VideoActivity.class);
+        if (context instanceof Activity) {
+        } else {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        intent.putExtra(INTENT_EXTRA_PARAM, this);
+        context.startActivity(intent);
     }
 
     protected Video(Parcel in) {

@@ -1,10 +1,9 @@
 package com.kejunyao.lecture.video;
-
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kejunyao.arch.util.Utility;
 import com.kejunyao.lecture.pinyin.R;
@@ -18,20 +17,7 @@ import cn.jzvd.JzvdStd;
  */
 public class VideoActivity extends BaseVideoActivity {
 
-    private static final boolean DEBUG = true;
-    public static final String TAG = "VideoActivity";
-
-    private static final String INTENT_KEY_VIDEO = "intent_key_video_e2d";
-
-    public static void startActivity(Context context, Video video) {
-        Intent intent = new Intent(context, VideoActivity.class);
-        if (context instanceof Activity) {
-        } else {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }
-        intent.putExtra(INTENT_KEY_VIDEO, video);
-        context.startActivity(intent);
-    }
+    private static final String TAG = "XT_VideoActivity";
 
     private JzvdStd mVideoView;
 
@@ -42,11 +28,20 @@ public class VideoActivity extends BaseVideoActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         mVideoView = findViewById(R.id.video_view);
-        mVideo = getIntent().getParcelableExtra(INTENT_KEY_VIDEO);
+        // JZUtils.hideStatusBar(this);
+        // JZUtils.hideSystemUI(this);
+        mVideo = Video.obtainParam(getIntent());
         if (mVideo == null || Utility.isNullOrEmpty(mVideo.getUrl())) {
             Toast.makeText(this, "请传入视频URL地址", Toast.LENGTH_LONG).show();
             return;
         }
         mVideoView.setUp(mVideo.getUrl(), mVideo.getTitle());
+        // mVideoView.gotoScreenFullscreen();
+        mVideoView.startVideo();
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 }

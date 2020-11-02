@@ -734,6 +734,8 @@ public abstract class Jzvd extends FrameLayout implements View.OnClickListener, 
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
