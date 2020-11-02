@@ -1,4 +1,4 @@
-package com.kejunyao.lecture;
+package com.kejunyao.lecture.video;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,28 +13,27 @@ import com.kejunyao.lecture.pinyin.OnItemClickListener;
  * $类描述$
  *
  * @author kejunyao
- * @since 2020年10月25日
+ * @since 2020年10月27日
  */
-public class OptionAdapter extends BaseRecyclerAdapter<Option> {
-
+public class VideoAdapter extends BaseRecyclerAdapter<Video> {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final ActionViewHolder holder = ActionViewHolder.create(parent);
+        final VideoViewHolder holder = VideoViewHolder.create(parent);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener != null) {
-                    Option option = getItem(holder.getAdapterPosition());
-                    mOnItemClickListener.onItemClick(option);
+                    Video video = getItem(holder.getAdapterPosition());
+                    mOnItemClickListener.onItemClick(video);
                 }
             }
         });
         return holder;
     }
 
-    private OnItemClickListener<Option> mOnItemClickListener;
-    void setOnItemClickListener(OnItemClickListener<Option> listener) {
+    private OnItemClickListener<Video> mOnItemClickListener;
+    void setOnItemClickListener(OnItemClickListener<Video> listener) {
         mOnItemClickListener = listener;
     }
 }

@@ -2,29 +2,25 @@ package com.kejunyao.lecture;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kejunyao.arch.file.FileUtils;
-import com.kejunyao.arch.net.Connection;
+import com.kejunyao.arch.recycler.AdapterData;
 import com.kejunyao.arch.thread.Processor;
 import com.kejunyao.arch.thread.ThreadPoolUtils;
-import com.kejunyao.lecture.lesson.LessonListActivity;
-import com.kejunyao.lecture.lesson.Video;
+import com.kejunyao.arch.util.ActivityUtils;
+import com.kejunyao.lecture.lesson.Lesson;
+import com.kejunyao.lecture.lesson.LessonAdapter;
+import com.kejunyao.lecture.lesson.LessonFactory;
+import com.kejunyao.lecture.video.Video;
 import com.kejunyao.lecture.pinyin.OnItemClickListener;
 import com.kejunyao.lecture.pinyin.PinyinActivity;
 import com.kejunyao.lecture.pinyin.R;
-import com.kejunyao.video.VideoActivity;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
+import com.kejunyao.lecture.video.VideoActivity;
+import com.kejunyao.lecture.video.VideoListActivity;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,62 +43,65 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setHasFixedSize(true);
-
-        List<Option> options = new ArrayList<>();
-        options.add(OptionFactory.createPinyinOption());
-        options.add(OptionFactory.createLessonOption());
-        options.add(OptionFactory.createTest());
-        refresh(options);
+        loadData();
     }
 
-    private OptionAdapter mVideoAdapter;
+    private void loadData() {
+        final WeakReference<MainActivity> ref = new WeakReference<>(this);
+        ThreadPoolUtils.runOnMultiple(new Processor<List<AdapterData>>() {
+            @Override
+            public List<AdapterData> onProcess() {
+                List<AdapterData> result = new ArrayList<>();
+                result.add(LessonFactory.createPinyin());
+                List<Lesson> lessons = AssetsUtils.parseLessons();
+                for (Lesson lesson : lessons) {
+                    result.add(LessonFactory.createLesson(lesson));
+                }
+                result.add(LessonFactory.createTest());
+                return result;
+            }
 
-    private void refresh(List<Option> options) {
+            @Override
+            public void onResult(List<AdapterData> result) {
+                if (ActivityUtils.isFinishing(ref.get())) {
+                    return;
+                }
+                refresh(result);
+            }
+        });
+    }
+
+    private LessonAdapter mVideoAdapter;
+    private void refresh(List<AdapterData> options) {
         if (mVideoAdapter == null) {
-            mVideoAdapter = new OptionAdapter();
-            mVideoAdapter.setOnItemClickListener(new OnItemClickListener<Option>() {
+            mVideoAdapter = new LessonAdapter();
+            mVideoAdapter.setOnItemClickListener(new OnItemClickListener<AdapterData>() {
                 @Override
-                public void onItemClick(Option data) {
-                    switch (data.id) {
-                        case OptionFactory.OPTION_ID_PINYIN:
+                public void onItemClick(AdapterData data) {
+                    switch (data.type) {
+                        case LessonFactory.OPTION_ID_PINYIN:
                             startActivity(new Intent(MainActivity.this, PinyinActivity.class));
                             break;
-                        case OptionFactory.OPTION_ID_LESSON:
-                            startActivity(new Intent(MainActivity.this, LessonListActivity.class));
+                        case LessonFactory.OPTION_ID_LESSON:
+                            Lesson lesson = (Lesson) data.data;
+                            VideoListActivity.startActivity(MainActivity.this, lesson.getUri());
                             break;
-                        case OptionFactory.OPTION_ID_TEST_VIDEO: {
+                        case LessonFactory.OPTION_ID_TEST_VIDEO: {
                             ThreadPoolUtils.runOnMultiple(new Processor<String>() {
 
                                 @Override
                                 public String onProcess() {
-                                    String result = null;
-                                    try {
-                                        String url = "https://v.qq.com/x/page/v0512ks1qhu.html";
-                                        url = "http://v.ranks.xin/video-parse.php?url=" + url;
-                                        String json = getString(url);
-                                        JSONObject jo = new JSONObject(json);
-                                        Log.d("sdjiwdijwijdiwidijw", "json: " + json + ", url: " + url);
-                                        if (jo != null && jo.has("data")) {
-                                            JSONArray array = jo.optJSONArray("data");
-                                            result = array.getJSONObject(0).optString("url");
-                                        }
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    } finally {
-                                        return result;
-                                    }
+                                    return Utils.parseTencentVideoUrl("https://v.qq.com/x/page/v0512ks1qhu.html");
                                 }
 
                                 @Override
                                 public void onResult(String result) {
-                                    Log.d("sdjiwdijwijdiwidijw", "result: " + result);
                                     Video video = new Video();
-                                    video.setDuration(29188);
                                     video.setId(11111);
                                     video.setTitle("哑舍");
+                                    video.setUrl(result);
                                     ArrayList<String> urls = new ArrayList<>();
                                     urls.add(result);
-                                    video.setUrls(urls);
                                     VideoActivity.startActivity(MainActivity.this, video);
                                 }
                             });
@@ -118,27 +117,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             mVideoAdapter.setData(options);
             mVideoAdapter.notifyDataSetChanged();
-        }
-    }
-
-    public static String getString(String url) {
-        String result = null;
-        try {
-            HttpURLConnection connection = (HttpURLConnection) new java.net.URL(url).openConnection();
-            connection.setRequestMethod("GET");
-            connection.setReadTimeout(5000);
-            connection.connect();
-            if (connection.getResponseCode() == 200) {
-                InputStream io = connection.getInputStream();
-                byte[] bytes = FileUtils.getBytesFromInputStream(io);
-                result = new String(bytes);
-                FileUtils.closeSafely(io);
-            }
-            connection.disconnect();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            return result;
         }
     }
 }

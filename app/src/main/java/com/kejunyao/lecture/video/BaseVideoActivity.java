@@ -1,4 +1,4 @@
-package com.kejunyao.video;
+package com.kejunyao.lecture.video;
 
 import androidx.appcompat.app.AppCompatActivity;
 

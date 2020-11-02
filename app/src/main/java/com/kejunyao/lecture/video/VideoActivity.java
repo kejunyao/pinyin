@@ -1,4 +1,4 @@
-package com.kejunyao.video;
+package com.kejunyao.lecture.video;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.kejunyao.arch.util.Utility;
-import com.kejunyao.lecture.lesson.Video;
 import com.kejunyao.lecture.pinyin.R;
 import cn.jzvd.JzvdStd;
 
@@ -43,12 +42,11 @@ public class VideoActivity extends BaseVideoActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
         mVideoView = findViewById(R.id.video_view);
-
         mVideo = getIntent().getParcelableExtra(INTENT_KEY_VIDEO);
-        if (mVideo == null || Utility.isNullOrEmpty(mVideo.getUrls())) {
+        if (mVideo == null || Utility.isNullOrEmpty(mVideo.getUrl())) {
             Toast.makeText(this, "请传入视频URL地址", Toast.LENGTH_LONG).show();
             return;
         }
-        mVideoView.setUp(mVideo.getUrls().get(0), mVideo.getTitle());
+        mVideoView.setUp(mVideo.getUrl(), mVideo.getTitle());
     }
 }

@@ -2,6 +2,8 @@ package com.kejunyao.lecture.pinyin;
 
 import android.content.Context;
 import com.kejunyao.arch.recycler.AdapterData;
+import com.kejunyao.lecture.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 

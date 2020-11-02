@@ -9,7 +9,7 @@ import android.content.Context;
  * @author kejunyao
  * @since 2020年10月08日
  */
-public class PinyinApp extends Application {
+public class App extends Application {
 
     private static Context sContext;
 

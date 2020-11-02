@@ -1,11 +1,9 @@
-package com.kejunyao.lecture.lesson;
+package com.kejunyao.lecture.video;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.TextUtils;
-import org.json.JSONArray;
+
 import org.json.JSONObject;
-import java.util.ArrayList;
 
 /**
  * $类描述$
@@ -15,10 +13,13 @@ import java.util.ArrayList;
  */
 public class Video implements Parcelable {
 
+    public static final int SOURCE_TENCENT = 1;
+
     private long id;
     private String title;
-    private long duration;
-    private ArrayList<String> urls;
+    private String original;
+    private String url;
+    private int source;
 
     public Video() {
     }
@@ -26,8 +27,8 @@ public class Video implements Parcelable {
     protected Video(Parcel in) {
         id = in.readLong();
         title = in.readString();
-        duration = in.readLong();
-        urls = in.createStringArrayList();
+        original = in.readString();
+        url = in.readString();
     }
 
     public static final Creator<Video> CREATOR = new Creator<Video>() {
@@ -58,20 +59,20 @@ public class Video implements Parcelable {
         this.title = title;
     }
 
-    public long getDuration() {
-        return duration;
+    public String getOriginal() {
+        return original;
     }
 
-    public void setDuration(long duration) {
-        this.duration = duration;
+    public void setOriginal(String original) {
+        this.original = original;
     }
 
-    public ArrayList<String> getUrls() {
-        return urls;
+    public String getUrl() {
+        return url;
     }
 
-    public void setUrls(ArrayList<String> urls) {
-        this.urls = urls;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
@@ -83,23 +84,26 @@ public class Video implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
         dest.writeString(title);
-        dest.writeLong(duration);
-        dest.writeStringList(urls);
+        dest.writeString(original);
+        dest.writeString(url);
+        dest.writeInt(source);
     }
 
     public static Video parse(JSONObject jo) {
         Video video = new Video();
         video.id = jo.optLong("id");
         video.title = jo.optString("title");
-        video.duration = jo.optLong("duration");
-        video.urls = new ArrayList<>();
-        JSONArray array = jo.optJSONArray("urls");
-        for (int i = 0, size = array.length(); i < size; i++) {
-            String url = array.optString(i);
-            if (!TextUtils.isEmpty(url)) {
-                video.urls.add(url);
-            }
-        }
+        video.url = jo.optString("url");
+        video.original = jo.optString("original");
+        video.source = jo.optInt("source");
         return video;
+    }
+
+    public int getSource() {
+        return source;
+    }
+
+    public void setSource(int source) {
+        this.source = source;
     }
 }

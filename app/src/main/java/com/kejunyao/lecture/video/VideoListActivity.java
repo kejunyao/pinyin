@@ -1,4 +1,4 @@
-package com.kejunyao.video;
+package com.kejunyao.lecture.video;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,11 +8,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.kejunyao.AssetsUtils;
+import com.kejunyao.lecture.AssetsUtils;
 import com.kejunyao.arch.thread.Processor;
 import com.kejunyao.arch.thread.ThreadPoolUtils;
 import com.kejunyao.arch.util.ActivityUtils;
-import com.kejunyao.lecture.lesson.Video;
+import com.kejunyao.lecture.Utils;
 import com.kejunyao.lecture.pinyin.OnItemClickListener;
 import com.kejunyao.lecture.pinyin.R;
 import org.json.JSONArray;
@@ -98,7 +98,7 @@ public class VideoListActivity extends AppCompatActivity {
             mVideoAdapter.setOnItemClickListener(new OnItemClickListener<Video>() {
                 @Override
                 public void onItemClick(Video data) {
-                    VideoActivity.startActivity(VideoListActivity.this, data);
+                    Utils.playVideo(VideoListActivity.this, data);
                 }
             });
             mVideoAdapter.setData(videos);

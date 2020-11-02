@@ -8,6 +8,8 @@ import com.kejunyao.arch.recycler.BaseRecyclerHolder;
 import com.kejunyao.arch.recycler.ViewHolderUtils;
 import com.kejunyao.arch.util.UIUtils;
 import com.kejunyao.arch.util.Utility;
+import com.kejunyao.lecture.Utils;
+
 import java.util.List;
 
 /**
